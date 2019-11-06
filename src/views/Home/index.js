@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Container, BackGroundImagem, ContainerLogin, OverlayImagem } from './styles';
+import { BackGroundImagem, ContainerLogin, OverlayImagem } from './styles';
 import LoginComponent from './LoginComponent'
 import CadastroComponent from './CadastroComponent'
-import { Row, Col } from 'react-grid-system';
-import { Flex, Box } from '@rebass/grid'
 
 export default class Home extends Component {
     constructor(props) {
@@ -15,21 +13,20 @@ export default class Home extends Component {
 
     render() {
         return (
-
-                <Flex  style={{ height: '-webkit-fill-available' }}>
-                    <Box width={3 / 4} px={2}>
+            <div class="container2">
+                <div className="row">
+                    <div className="col-sm-5 col-md-6 col-lg-7  col-xl-8">
                         <BackGroundImagem>
                             <OverlayImagem />
                         </BackGroundImagem>
-                    </Box >
-                    <Box width={1 / 4} px={2}>
+                    </div>
+                    <div className="col-sm-7 col-md-6 col-lg-5 col-xl-4">
                         <ContainerLogin>
                             <CadastroComponent />
                         </ContainerLogin>
-                    </Box >
-
-                </Flex>
-
+                    </div>
+                </div>
+            </div>
         );
     }
 }

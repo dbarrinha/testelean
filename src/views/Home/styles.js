@@ -8,9 +8,8 @@ export const Container = styled.div`
 `;
 
 export const BackGroundImagem = styled.div`
-   display: flex;
-   height: 100%;
-    width: 100%;
+    
+    height: 100%;
     resize: vertical;
     background-position: center;
     background-size: cover;
@@ -25,17 +24,25 @@ export const OverlayImagem = styled.div`
 `;
 
 export const ContainerLogin = styled.div`
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background-color: green;
+    height: 100vh;
+`;
+
+export const FormInput = styled.div`
+    display: grid;
+    justify-content: start;
+    align-items: center;
+`;
+
+export const FormLabel = styled.label`
+    color: #999999;
 `;
 
 export const InputCustom = styled.input`
-    background-color: #efeeed;
+    color: #efeeed;
     border-color: #dbdbdb;
+   
     :focus {
-        background-color: #555555;
+        color: #555555;
     }
 `;
 
