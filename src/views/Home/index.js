@@ -15,7 +15,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div class="container2 animated fadeIn delay-1s">
+            <div className="container2 animated fadeIn">
                 <div className="row">
                     <div className="col-sm-5 col-md-6 col-lg-7  col-xl-8">
                         <BackGroundImagem>
