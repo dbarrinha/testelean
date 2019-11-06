@@ -22,7 +22,7 @@ export const OverlayImagem = styled.div`
     background-image: linear-gradient(to top, rgba(64,200,244,0.6), rgba(33, 121, 181,0.8));
 `;
 
-export const ContainerLogin = styled.div`
+export const ContainerAuth = styled.div`
     height: 100vh;
 `;
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BackGroundImagem, ContainerLogin, OverlayImagem, ButtomCustom ,ButtomLogin} from './styles';
+import { BackGroundImagem, ContainerAuth, OverlayImagem, ButtomCustom ,ButtomLogin} from './styles';
 import LoginComponent from './LoginComponent'
 import CadastroComponent from './CadastroComponent'
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -23,7 +23,7 @@ export default class Home extends Component {
                         </BackGroundImagem>
                     </div>
                     <div className="col-sm-7 col-md-6 col-lg-5 col-xl-4">
-                        <ContainerLogin>
+                        <ContainerAuth>
                             {this.state.isLogin ?
                                 <LoginComponent class="animated fadeIn " />
                                 :
@@ -52,7 +52,7 @@ export default class Home extends Component {
                                     </div>
                                 }
                             </div>
-                        </ContainerLogin>
+                        </ContainerAuth>
                     </div>
                 </div>
             </div>
