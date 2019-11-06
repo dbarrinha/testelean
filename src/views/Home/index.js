@@ -3,6 +3,8 @@ import { BackGroundImagem, ContainerLogin, OverlayImagem, ButtomCustom ,ButtomLo
 import LoginComponent from './LoginComponent'
 import CadastroComponent from './CadastroComponent'
 import { IoIosArrowRoundForward } from "react-icons/io";
+
+
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -82,7 +84,6 @@ export default class Home extends Component {
                                         </ButtomLogin>
                                     </div>
                                 }
-
                             </div>
                         </ContainerLogin>
                     </div>

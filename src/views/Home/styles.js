@@ -8,7 +8,6 @@ export const Container = styled.div`
 `;
 
 export const BackGroundImagem = styled.div`
-    
     height: 100%;
     resize: vertical;
     background-position: center;
