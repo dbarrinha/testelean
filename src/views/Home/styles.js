@@ -28,30 +28,64 @@ export const ContainerLogin = styled.div`
 `;
 
 export const FormInput = styled.div`
-    display: grid;
-    justify-content: start;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    margin-bottom: 20px;
 `;
 
 export const FormLabel = styled.label`
     color: #999999;
+    font-size: 0.8rem;
 `;
 
 export const InputCustom = styled.input`
     color: #efeeed;
     border-color: #dbdbdb;
-   
+    width: auto;
+    width: 300px;
+    min-height: 30px;
     :focus {
         color: #555555;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-top-width: 0px;
     }
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    
 `;
 
 export const ButtomCustom = styled.button`
-    color: #efeeed;
+    color: #ffffff;
     background-color: #40c8f4;
+    border :0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    min-height: 30px;
     
     :hover {
         background-color: #40c8f470;
+    }
+`;
+
+export const ButtomLogin = styled.button`
+    color: black;
+    background-color: #ffffffff;
+    border :0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    min-height: 30px;
+    box-shadow: 0.3px 0.3px 0.5px grey;
+    :hover {
+        box-shadow: 1px 1px 3px grey;
     }
 `;
 

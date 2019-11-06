@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/gridCustom.css';
-import './bootstrap.css';
+import './grid.css';
 import './index.css';
+import 'animate.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
