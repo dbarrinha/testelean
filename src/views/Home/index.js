@@ -13,39 +13,6 @@ export default class Home extends Component {
         }
     }
 
-    animateCSSIN = (element, animationName, callback) => {
-        const node = document.querySelector(element)
-        node.classList.add('animated', animationName)
-
-        function handleAnimationEnd() {
-            node.classList.remove('animated', animationName)
-            node.removeEventListener('animationend', handleAnimationEnd)
-
-            if (typeof callback === 'function') callback()
-        }
-
-        //node.addEventListener('animationend', handleAnimationEnd)
-    }
-    animateCSSOUT = (element, animationName, callback) => {
-        const node = document.querySelector(element)
-        node.classList.add('animated', animationName)
-
-        function handleAnimationEnd() {
-            node.classList.remove('animated', animationName)
-            node.removeEventListener('animationend', handleAnimationEnd)
-
-            if (typeof callback === 'function') callback()
-        }
-
-        node.addEventListener('animationend', handleAnimationEnd)
-    }
-
-    handleAnimationEnd = (node) => {
-        node.classList.remove('animated', "fadeIn")
-        node.removeEventListener('animationend', this.handleAnimationEnd)
-
-    }
-
     render() {
         return (
             <div class="container2 animated fadeIn delay-1s">
@@ -69,9 +36,9 @@ export default class Home extends Component {
                                             {"Entrar"}
                                         </ButtomCustom>
 
-                                        <a style={{ fontSize: 12, color: 'black', display: 'block', marginTop: 10, cursor: 'pointer' }} onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
+                                        <span style={{ fontSize: 12, color: 'black', display: 'block', marginTop: 10, cursor: 'pointer' }} onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
                                             {"Ainda não possue conta? Cadastre-se"}
-                                        </a>
+                                        </span>
                                     </div>
                                     :
                                     <div style={{ display: 'flex', width: 300, flexDirection: 'row', justifyContent: 'space-between' }}>
