@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BackGroundImagem, ContainerAuth, OverlayImagem, ButtomCustom ,ButtomLogin} from './styles';
+import { BackGroundImagem, ContainerAuth, OverlayImagem} from './styles';
 import LoginComponent from './LoginComponent'
 import CadastroComponent from './CadastroComponent'
-import { IoIosArrowRoundForward } from "react-icons/io";
+
 
 
 export default class Home extends Component {
@@ -25,33 +25,10 @@ export default class Home extends Component {
                     <div className="col-sm-7 col-md-6 col-lg-5 col-xl-4">
                         <ContainerAuth>
                             {this.state.isLogin ?
-                                <LoginComponent class="animated fadeIn " />
+                                <LoginComponent goToCad={()=>this.setState({ isLogin: !this.state.isLogin })} className="animated fadeIn " />
                                 :
-                                <CadastroComponent class="animated fadeIn " />
+                                <CadastroComponent goToLogin={()=>this.setState({ isLogin: !this.state.isLogin })} className="animated fadeIn " />
                             }
-                            <div style={{  paddingRight: 20, paddingLeft: 40 }}>
-                                {this.state.isLogin ?
-                                    <div style={{ display: 'flex', width: 300, flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                        <ButtomCustom type="button" onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
-                                            {"Entrar"}
-                                        </ButtomCustom>
-
-                                        <span style={{ fontSize: 12, color: 'black', display: 'block', marginTop: 10, cursor: 'pointer' }} onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
-                                            {"Ainda não possue conta? Cadastre-se"}
-                                        </span>
-                                    </div>
-                                    :
-                                    <div style={{ display: 'flex', width: 300, flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <ButtomCustom type="button" onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
-                                            {"Cadastrar"}
-                                        </ButtomCustom>
-
-                                        <ButtomLogin onClick={() => this.setState({ isLogin: !this.state.isLogin })}>
-                                            {"Login"}<IoIosArrowRoundForward />
-                                        </ButtomLogin>
-                                    </div>
-                                }
-                            </div>
                         </ContainerAuth>
                     </div>
                 </div>

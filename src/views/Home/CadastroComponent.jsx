@@ -1,35 +1,54 @@
 import React from 'react';
-import { FormInput, InputCustom, FormLabel } from './styles';
+import useForm from 'react-hook-form'
+import { FormInput, InputCustom, FormLabel, ButtomCustom, ButtomLogin } from './styles';
 import InputMask from 'react-input-mask';
+import { IoIosArrowRoundForward } from "react-icons/io";
+import {cadastraUser } from '../../service/db'
 
 export default function CadastroComponent(props) {
+
+  const { register, handleSubmit, watch, errors } = useForm()
+  const onSubmit = data => {
+    cadastraUser(data);
+    console.log(data)
+  }
+
   return (
     <div style={{ paddingTop: 50, paddingRight: 20, paddingLeft: 40 }} {...props} >
       <h2 style={{ color: '#999999', fontSize: 30 }}>Lean Cadastro</h2>
-      <form style={{ marginTop: 10, marginBottom: 10 }}>
+      <form style={{ marginTop: 10, marginBottom: 10 }} onSubmit={handleSubmit(onSubmit)}>
         <FormInput>
           <FormLabel>Nome Completo</FormLabel>
-          <InputCustom name="nome" />
+          <InputCustom name="nome" ref={register({ required: true })} />
         </FormInput>
 
         <FormInput>
           <FormLabel>E-mail</FormLabel>
-          <InputCustom name="email" />
+          <InputCustom name="email" ref={register({ required: true })} />
         </FormInput>
 
         <FormInput>
           <FormLabel>CPF</FormLabel>
           <InputMask mask="999.999.999-99" >
-            <InputCustom name="cpf" />
+            <InputCustom name="cpf" ref={register({ required: true })} />
           </InputMask>
         </FormInput>
 
         <FormInput>
           <FormLabel>Telefone</FormLabel>
           <InputMask mask="(99) 99999-9999" >
-            <InputCustom name="tel" />
+            <InputCustom name="tel" ref={register({ required: true })} />
           </InputMask>
         </FormInput>
+        <div style={{ display: 'flex', width: 300, flexDirection: 'row', justifyContent: 'space-between' }}>
+          <ButtomCustom type="submit" >
+            {"Cadastrar"}
+          </ButtomCustom>
+
+          <ButtomLogin onClick={() => props.goToLogin()}>
+            {"Login"}<IoIosArrowRoundForward style={{ width: 20, height: 18 }} />
+          </ButtomLogin>
+        </div>
       </form>
     </div>
   );

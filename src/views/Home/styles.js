@@ -68,6 +68,8 @@ export const ButtomCustom = styled.button`
 `;
 
 export const ButtomLogin = styled.button`
+display: flex;
+justify-content: space-evenly;
     color: black;
     background-color: #ffffffff;
     border :0px;
