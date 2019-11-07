@@ -12,9 +12,8 @@ export default function CadastroComponent(props) {
   const onSubmit = async data => {
     setIsError(false)
     let res = await cadastraUser(data);
-    console.log(res)
     if (res) {
-      //props.goToLogin()
+      props.goToLogin()
     } else {
       setIsError(true)
     }

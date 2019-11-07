@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import useForm from 'react-hook-form'
 import { FormInput, InputCustom, FormLabel, ButtomCustom, SpanError } from './styles';
 import { fazLogin } from '../../service/db'
-import { useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 
 export default function CadastroComponent(props) {
   const { register, handleSubmit, errors } = useForm()
   let [isError, setIsError] = useState(false)
-  let history = useHistory();
+  let hist = useHistory()
   const onSubmit = async data => {
     setIsError(false)
     let res = await fazLogin(data)
     if (res) {
-      history.push("/list");
+      hist.push("/list");
     } else {
       setIsError(true)
     }

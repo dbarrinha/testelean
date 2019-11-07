@@ -4,7 +4,6 @@ import LoginComponent from './LoginComponent'
 import CadastroComponent from './CadastroComponent'
 
 
-
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +14,7 @@ export default class Home extends Component {
     componentDidMount = async () => {
         let usuario = await localStorage.getItem("User@testelean")
         if (usuario) {
-            //this.props.history.push('/list')
+            this.props.history.push('/list')
         }
     }
 

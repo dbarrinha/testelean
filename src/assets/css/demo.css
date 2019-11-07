@@ -1,0 +1,74 @@
+
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after {display: table;  content: ''; }
+.clearfix:after { clear: both; }
+
+body {
+	font-family: "Avenir Next", Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+	color: #444;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	outline: none;
+	color: #63f8d3;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #57d8b8;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+
+
+.codrops-header,
+.pricing-section {
+	height: 100vh;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.pricing-section {
+	padding: 2em 0 8em;
+	height: 100vh;
+	position: relative;
+}
+
+.pricing-section__title {
+	font-size: 1.4em;
+	font-weight: 700;
+	margin: 3em 0 5em;
+	flex: none;
+}
+
+.pricing-section a {
+	color: #333;
+}
+
+.pricing-section a:hover, 
+.pricing-section a:focus {
+	color: #000;
+}
+
+.bg-7 {
+	color: #C3E9F5;
+	background: linear-gradient(45deg, #7e67e5, #02cbdf);
+}
+

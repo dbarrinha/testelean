@@ -3,7 +3,7 @@ import Listagem from './views/Listagem'
 
 const routes = [
     {
-        path: "/listagem",
+        path: "/list",
         component: Listagem
     }
 ]
