@@ -34,7 +34,7 @@ a:hover, a:focus {
 
 .codrops-header,
 .pricing-section {
-	height: 100vh;
+	min-height: 100vh;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-direction: column;
@@ -46,8 +46,8 @@ a:hover, a:focus {
 }
 
 .pricing-section {
-	padding: 2em 0 8em;
-	height: 100vh;
+	
+	min-height: 100vh;
 	position: relative;
 }
 

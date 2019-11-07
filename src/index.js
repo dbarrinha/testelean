@@ -4,6 +4,7 @@ import './assets/css/gridCustom.css';
 import './grid.css';
 import './index.css';
 import 'animate.css'
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
