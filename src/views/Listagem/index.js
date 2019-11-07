@@ -4,6 +4,10 @@ import React, { Component } from 'react';
 
 export default class Listagem extends Component {
   render() {
-    return <div />;
+    return (
+      <div >
+        <h3>Listagem</h3>
+      </div>
+    );
   }
 }

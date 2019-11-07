@@ -1,13 +1,13 @@
 import React from 'react';
 import useForm from 'react-hook-form'
-import { FormInput, InputCustom, FormLabel, ButtomCustom, ButtomLogin } from './styles';
+import { FormInput, InputCustom, FormLabel, ButtomCustom, ButtomLogin,SpanError } from './styles';
 import InputMask from 'react-input-mask';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import {cadastraUser } from '../../service/db'
 
 export default function CadastroComponent(props) {
 
-  const { register, handleSubmit, watch, errors } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
     cadastraUser(data);
     console.log(data)
@@ -20,11 +20,13 @@ export default function CadastroComponent(props) {
         <FormInput>
           <FormLabel>Nome Completo</FormLabel>
           <InputCustom name="nome" ref={register({ required: true })} />
+          {errors.nome && <SpanError>Este campo é obrigatório</SpanError>}
         </FormInput>
 
         <FormInput>
           <FormLabel>E-mail</FormLabel>
           <InputCustom name="email" ref={register({ required: true })} />
+          {errors.email && <SpanError>Este campo é obrigatório</SpanError>}
         </FormInput>
 
         <FormInput>
@@ -32,6 +34,7 @@ export default function CadastroComponent(props) {
           <InputMask mask="999.999.999-99" >
             <InputCustom name="cpf" ref={register({ required: true })} />
           </InputMask>
+          {errors.cpf && <SpanError>Este campo é obrigatório</SpanError>}
         </FormInput>
 
         <FormInput>
@@ -39,7 +42,9 @@ export default function CadastroComponent(props) {
           <InputMask mask="(99) 99999-9999" >
             <InputCustom name="tel" ref={register({ required: true })} />
           </InputMask>
+          {errors.tel && <SpanError>Este campo é obrigatório</SpanError>}
         </FormInput>
+
         <div style={{ display: 'flex', width: 300, flexDirection: 'row', justifyContent: 'space-between' }}>
           <ButtomCustom type="submit" >
             {"Cadastrar"}

@@ -84,3 +84,9 @@ justify-content: space-evenly;
     }
 `;
 
+export const SpanError = styled.span`
+    color: #e78;
+    font-size: 12px;
+    margin-top: 5px;
+`;
+

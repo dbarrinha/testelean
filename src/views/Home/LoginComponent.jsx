@@ -1,18 +1,37 @@
-import React from 'react';
-import { FormInput, InputCustom, FormLabel, ButtomCustom } from './styles';
+import React, { useState } from 'react';
+import useForm from 'react-hook-form'
+import { FormInput, InputCustom, FormLabel, ButtomCustom, SpanError } from './styles';
+import { fazLogin } from '../../service/db'
+import { useHistory } from "react-router-dom";
 
 export default function CadastroComponent(props) {
+  const { register, handleSubmit, errors } = useForm()
+  let [isError, setIsError] = useState(false)
+  let history = useHistory();
+  console.log(history)
+  const onSubmit = async data => {
+    setIsError(false)
+    let res = await fazLogin(data)
+    if (res) {
+      history.push("listagem");
+    } else {
+      setIsError(true)
+    }
+  }
+
   return (
     <div style={{ paddingTop: 50, paddingRight: 20, paddingLeft: 40 }} {...props}>
       <h2 style={{ color: '#999999', fontSize: 30 }}>Lean Login</h2>
-      <form style={{ marginTop: 10, marginBottom: 10 }}>
+      <form style={{ marginTop: 10, marginBottom: 10 }} onSubmit={handleSubmit(onSubmit)}>
+        {isError && <h5 style={{ color: '#e67' }}>Email inválido!</h5>}
         <FormInput>
           <FormLabel>E-mail</FormLabel>
-          <InputCustom name="email" />
+          <InputCustom name="email" ref={register({ required: true })} />
+          {errors.email && <SpanError>Este campo é obrigatório</SpanError>}
         </FormInput>
 
         <div style={{ display: 'flex', width: 300, flexDirection: 'column', justifyContent: 'flex-start' }}>
-          <ButtomCustom type="submit" onClick={() => { }}>
+          <ButtomCustom type="submit">
             {"Entrar"}
           </ButtomCustom>
           <span style={{ fontSize: 12, color: 'black', display: 'block', marginTop: 10, cursor: 'pointer' }} onClick={() => props.goToCad()}>
