@@ -12,6 +12,12 @@ export default class Home extends Component {
             isLogin: true
         }
     }
+    componentDidMount = async () => {
+        let usuario = await localStorage.getItem("User@testelean")
+        if (usuario) {
+            //this.props.history.push('/list')
+        }
+    }
 
     render() {
         return (

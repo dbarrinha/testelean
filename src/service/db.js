@@ -4,7 +4,7 @@ const userkey = "User@testelean"
 export const fazLogin = async (user) => {
 
     let res = await verificaSeEmailExiste(user.email)
-    if (res !== false) {
+    if (res) {
         localStorage.setItem(userkey, JSON.stringify(res));
         return true;
     }
@@ -20,7 +20,8 @@ export const fazlogout = async () => {
 //cadastranovo usuario
 export const cadastraUser = async (user) => { //verificar se cpf já cadastrado
     let res = await verificaSeEmailExiste(user.email)
-    if (res !== false) {
+    console.log(res)
+    if (res === false) {
         let lista = []
         lista = await localStorage.getItem(listakey);
         lista = JSON.parse(lista);
@@ -33,7 +34,7 @@ export const cadastraUser = async (user) => { //verificar se cpf já cadastrado
         await localStorage.setItem(listakey, JSON.stringify(lista))
         return user;
     }
-    return false;
+    else return false;
 
 }
 
@@ -48,6 +49,7 @@ export const verificaSeEmailExiste = async (email) => {
         if (found) return found
         else return false
     }
+    return false
 }
 
 

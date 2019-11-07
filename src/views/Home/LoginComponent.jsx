@@ -8,12 +8,11 @@ export default function CadastroComponent(props) {
   const { register, handleSubmit, errors } = useForm()
   let [isError, setIsError] = useState(false)
   let history = useHistory();
-  console.log(history)
   const onSubmit = async data => {
     setIsError(false)
     let res = await fazLogin(data)
     if (res) {
-      history.push("listagem");
+      history.push("/list");
     } else {
       setIsError(true)
     }

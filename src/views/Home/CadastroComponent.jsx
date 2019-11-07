@@ -1,22 +1,31 @@
-import React from 'react';
+import React,{useState} from 'react';
 import useForm from 'react-hook-form'
-import { FormInput, InputCustom, FormLabel, ButtomCustom, ButtomLogin,SpanError } from './styles';
+import { FormInput, InputCustom, FormLabel, ButtomCustom, ButtomLogin, SpanError } from './styles';
 import InputMask from 'react-input-mask';
 import { IoIosArrowRoundForward } from "react-icons/io";
-import {cadastraUser } from '../../service/db'
+import { cadastraUser } from '../../service/db'
 
 export default function CadastroComponent(props) {
 
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => {
-    cadastraUser(data);
-    console.log(data)
+  let [isError, setIsError] = useState(false)
+  const onSubmit = async data => {
+    setIsError(false)
+    let res = await cadastraUser(data);
+    console.log(res)
+    if (res) {
+      //props.goToLogin()
+    } else {
+      setIsError(true)
+    }
+
   }
 
   return (
     <div style={{ paddingTop: 50, paddingRight: 20, paddingLeft: 40 }} {...props} >
       <h2 style={{ color: '#999999', fontSize: 30 }}>Lean Cadastro</h2>
       <form style={{ marginTop: 10, marginBottom: 10 }} onSubmit={handleSubmit(onSubmit)}>
+      {isError && <h5 style={{ color: '#e67' }}>Email Já Cadastrado!</h5>}
         <FormInput>
           <FormLabel>Nome Completo</FormLabel>
           <InputCustom name="nome" ref={register({ required: true })} />
