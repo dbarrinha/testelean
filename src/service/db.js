@@ -1,5 +1,6 @@
 const listakey = "listaUser@testelean"
 const userkey = "User@testelean"
+const _ = require("lodash")
 //fazlogin
 export const fazLogin = async (user) => {
 
@@ -36,6 +37,46 @@ export const cadastraUser = async (user) => { //verificar se cpf já cadastrado
     }
     else return false;
 
+}
+
+export const getUsers = async () => {
+    let lista = []
+    lista = await localStorage.getItem("listaUser@testelean");
+    lista = JSON.parse(lista);
+    if (lista) {
+        return lista
+    }
+    return false
+}
+
+export const editaUser = async (user) => {
+    let lista = []
+    lista = await localStorage.getItem("listaUser@testelean");
+    lista = JSON.parse(lista);
+    let i = null
+    if (lista) {
+        lista.map((item, index) => {
+            if (item.email === user.email) i = index
+        })
+        if (i !== null) lista[i] = user
+        await localStorage.setItem(listakey, JSON.stringify(lista))
+        return true;
+    }
+    return false
+}
+
+export const deletaUser = async (email) => {
+    let len = 0
+    let lista = []
+    lista = await localStorage.getItem("listaUser@testelean");
+    lista = JSON.parse(lista);
+    len = lista.length
+    var newList = _.remove(lista, function (n) {
+        return n.email !== email;
+    });
+    await localStorage.setItem(listakey, JSON.stringify(newList))
+    if (len === newList.length) return false;
+    else return true;
 }
 
 export const verificaSeEmailExiste = async (email) => {

@@ -8,7 +8,6 @@
 	-webkit-justify-content: center;
 	justify-content: center;
 	width: 100%;
-	min-width: 500px;
 	margin: 10px auto 3em;
 }
 
@@ -23,8 +22,13 @@
 	text-align: center;
 	-webkit-flex: 0 1 330px;
 	flex: 0 1 330px;
-	min-width: 500px;
 }
+
+.pricing__item-md {
+	position: relative;
+	padding: 10px;
+}
+
 
 .pricing__feature-list {
 	text-align: left;

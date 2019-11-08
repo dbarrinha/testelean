@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import rotas from './routes'
 
 import Home from './views/Home'
-import Listagem from './views/Listagem'
 function App() {
   return (
     <BrowserRouter  >
