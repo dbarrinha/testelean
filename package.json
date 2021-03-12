@@ -10,7 +10,7 @@
     "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-awesome-modal": "^2.0.5",
-    "react-dev-utils": "^9.1.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.11.0",
     "react-hook-form": "^3.26.5",
     "react-icons": "^3.8.0",
